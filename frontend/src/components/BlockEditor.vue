@@ -76,7 +76,7 @@
         </div>
         <!-- Block Link Editor -->
         <baklava-editor :plugin="viewPlugin" />
-        <div class="button-menu">
+        <div class="button-menu" :style="showMenu ? 'display: block;' : 'display: none;'">
             <button @click="menuModal = !menuModal">Menu</button>
             <button @click="executeEditorData">Execute</button>
         </div>
@@ -108,10 +108,12 @@ export default {
             loadSchemaName: "",
             loadSchemas: [],
             BlockNameID: {},
+            showMenu: true
         };
     },
     created() {
         this.loadSchemas = this.args.load_schema_names;
+        this.showMenu = !!this.args.show_menu;
         // Register the plugins
         // The view plugin is used for rendering the nodes
         this.editor.use(this.viewPlugin);

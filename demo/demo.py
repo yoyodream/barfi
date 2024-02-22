@@ -45,5 +45,6 @@ if barfi_result := st_barfi(
     base_blocks=[feed, result, mixer, splitter],
     compute_engine=compute_engine,
     load_schema=load_schema,
+    showMenu=False,
 ):
     st.write(barfi_result)

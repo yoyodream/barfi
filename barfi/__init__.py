@@ -45,8 +45,7 @@ else:
 # and lose its current state. In this case, we want to vary the component's
 # "name" argument without having it get recreated.
 
-
-def st_barfi(base_blocks: Union[List[Block], Dict], load_schema: str = None, compute_engine: bool = True, key=None):
+def st_barfi(base_blocks: Union[List[Block], Dict], load_schema: str = None, compute_engine: bool = True, key=None, showMenu: bool = True):
     editor_schema = load_schema_name(load_schema) if load_schema else None
     schemas_in_db = load_schemas()
     schema_names_in_db = schemas_in_db['schema_names']
@@ -75,7 +74,7 @@ def st_barfi(base_blocks: Union[List[Block], Dict], load_schema: str = None, com
             'Invalid type for base_blocks passed to the st_barfi component.')
 
     _from_client = _component_func(base_blocks=base_blocks_data, load_editor_schema=editor_schema,
-                                   load_schema_names=schema_names_in_db, load_schema_name=load_schema, editor_setting=editor_setting,
+                                   load_schema_names=schema_names_in_db, load_schema_name=load_schema, show_menu=showMenu, editor_setting=editor_setting,
                                    key=key, default={'command': 'skip', 'editor_state': {}})
 
     if _from_client['command'] == 'execute':
