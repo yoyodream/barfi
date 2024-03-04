@@ -44,7 +44,6 @@ class ComputeEngine(object):
         if not bool(self._editor_state):
             return
         for _block in self._editor_state['nodes']:
-
             # Create a child block object for the active block and associate with its id
             _parent_block = next(
                 _b for _b in self._blocks if _b._type == _block['type'])

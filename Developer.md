@@ -26,6 +26,7 @@ Create a new Python virtual environment:
 ```shell
 $ python3 -m venv venv  # create venv
 $ . venv/bin/activate   # activate venv
+$ source venv/bin/activate
 $ pip install streamlit # install streamlit
 ```
 

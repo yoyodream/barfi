@@ -1,7 +1,12 @@
+import sys
+sys.path.insert(0, '/Users/mac/Documents/data/git/github/yoyodream/barfi')
+
 from barfi import st_barfi, barfi_schemas, Block
 import streamlit as st
 
 from barfi import Block
+
+user = 'demo-user'
 
 feed = Block(name='Feed')
 feed.add_output()
@@ -37,7 +42,7 @@ def result_func(self):
     in_1 = self.get_interface(name='Input 1')
 result.add_compute(result_func)
 
-load_schema = st.selectbox('Select a saved schema:', barfi_schemas())
+load_schema = st.selectbox('Select a saved schema:', barfi_schemas(user = user))
 
 compute_engine = st.checkbox('Activate barfi compute engine', value=False)
 
@@ -45,6 +50,7 @@ if barfi_result := st_barfi(
     base_blocks=[feed, result, mixer, splitter],
     compute_engine=compute_engine,
     load_schema=load_schema,
-    showMenu=False,
+    user = user
+    # show_menu=False
 ):
     st.write(barfi_result)

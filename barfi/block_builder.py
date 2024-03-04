@@ -25,8 +25,8 @@ class Block(object):
         return f'<barfi.Block of type `{self._type}` at {hex(id(self))}>'
 
     def __str__(self) -> str:
-        inputs_name = [input['name'] for input in self._inputs]
-        outputs_name = [output['name'] for output in self._outputs]
+        inputs_name = [input for input in self._inputs]
+        outputs_name = [output for output in self._outputs]
         options_name = [option['name'] for option in self._options]
         line_1 = f'barfi.Block of type {self._type} with name {self._name} \n'
         line_2 = f'Inputs: {inputs_name!r} \n'
@@ -180,8 +180,14 @@ class Block(object):
         _options_export = [item for _, item in self._options.items()]
         return {'name': self._name, 'inputs': _inputs_export, 'outputs': _outputs_export, 'options': _options_export}
 
-    def _on_compute():
+    def _on_compute(self):
         pass
 
     def add_compute(self, _func: Callable):
         self._on_compute = types.MethodType(_func, self)
+
+    def get_name(self):
+        return self._name
+    
+    def get_all_state(self):
+        return self._state

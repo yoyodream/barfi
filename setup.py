@@ -5,17 +5,19 @@ long_description = """# Barfi
 **Block and Link based graphical programming environment for performing simulations in Python.**
 
 It provides a Streamlit component for a graphical programming environment to perform simulations.
+
+Forked from Krish-adi's Barfi.
 """
 
 setuptools.setup(
-    name="barfi",
-    version="0.7.0",
-    author="Adithya Krishnan",
-    author_email="krishsandeep@gmail.com",
-    description="Framework for a graphical programming environment.",
+    name="yoyobarfi",
+    version="0.8.0.4",
+    author="YoYoDream",
+    author_email="yoyodream729@gmail.com",
+    description="Framework for a graphical programming environment. Forked from Krish-adi's Barfi.",
     long_description=long_description,
     long_description_content_type="text/markdown",
-    url="https://github.com/krish-adi/barfi",
+    url="https://github.com/yoyodream/barfi",
     packages=setuptools.find_packages(),
     include_package_data=True,
     classifiers=[
@@ -30,6 +32,6 @@ setuptools.setup(
         "networkx >= 2.6.2",
     ],
     project_urls={
-        'Source': 'https://github.com/krish-adi/barfi',
+        'Source': 'https://github.com/yoyodream/barfi',
     },
 )

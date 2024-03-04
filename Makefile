@@ -14,6 +14,10 @@ run:
 test: 
 	cd tests/unittests && python -m unittest discover
 
+.PHONY: build
+build: 
+	rm -rf dist/* && python setup.py sdist bdist_wheel
+
 .PHONY: upload
 upload: 
-	twine upload -u "__token__" -p "$(PYPI_BARFI_API)" --skip-existing --verbose dist/*
+	twine upload -u "__token__" -p "__password__" --skip-existing --verbose dist/*
